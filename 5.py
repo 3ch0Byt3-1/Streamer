@@ -8,6 +8,8 @@ aimbot_addresses = []
 original_values_rep = {}  # address + 0x9E
 original_values_scan = {}  # address + 0xA2
 
+
+
 def mkp(aob: str):
     """Improved AOB pattern converter with better error handling"""
     byte_pattern = bytearray()
