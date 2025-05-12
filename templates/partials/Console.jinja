@@ -1,0 +1,84 @@
+{% macro Console(args) %}
+<script src="{{url_for('static', filename='js/console.js')}}"></script>
+<div class="fixed bottom-4 right-4 z-50 w-64 transition-all duration-300" id="console-container">
+    <!-- Minimized State -->
+    <div id="console-minimized" class="bg-[#1F2427] rounded-full shadow-xl flex items-center justify-between px-3 py-2 cursor-pointer hover:scale-105 transition-transform">
+        <div class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M2.5 5a.5.5 0 01.5-.5h14a.5.5 0 01.5.5V15a.5.5 0 01-.5.5h-14a.5.5 0 01-.5-.5V5zM1 5a1.5 1.5 0 011.5-1.5h14A1.5 1.5 0 0118 5v10a1.5 1.5 0 01-1.5 1.5h-14A1.5 1.5 0 011 15V5z"></path>
+            </svg>
+            <span class="text-xs font-medium text-gray-300">Console</span>
+        </div>
+        <span class="text-green-400 text-xs">▶</span>
+    </div>
+
+    <!-- Expanded State -->
+    <div id="console-expanded" class="hidden bg-[#1F2427] rounded-xl shadow-2xl border border-white/10">
+        <!-- Console Header -->
+        <div class="px-3 py-2 flex items-center justify-between border-b border-white/10">
+            <div class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M2.5 5a.5.5 0 01.5-.5h14a.5.5 0 01.5.5V15a.5.5 0 01-.5.5h-14a.5.5 0 01-.5-.5V5zM1 5a1.5 1.5 0 011.5-1.5h14A1.5 1.5 0 0118 5v10a1.5 1.5 0 01-1.5 1.5h-14A1.5 1.5 0 011 15V5z"></path>
+                </svg>
+                <span class="text-xs font-medium text-gray-300">Console</span>
+            </div>
+            <button id="console-close" class="text-gray-400 hover:text-white transition-colors text-lg">
+                ×
+            </button>
+        </div>
+
+        <!-- Console Body -->
+        <div class="h-40 overflow-y-auto p-2 text-xs font-mono">
+            <div class="space-y-1 text-gray-300" id="console-content">
+                <!-- Console output will be injected here -->
+                <div class="text-green-400">> Console ready</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    #console-expanded {
+        scrollbar-width: thin;
+        scrollbar-color: #4ade80 transparent;
+    }
+
+    #console-expanded::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    #console-expanded::-webkit-scrollbar-thumb {
+        background-color: #4ade80;
+        border-radius: 2px;
+    }
+
+    #console-content div {
+        word-break: break-word;
+        line-height: 1.4;
+    }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const container = document.getElementById('console-container');
+    const minimized = document.getElementById('console-minimized');
+    const expanded = document.getElementById('console-expanded');
+    const closeBtn = document.getElementById('console-close');
+
+    // Toggle between states
+    const toggleConsole = () => {
+        minimized.classList.toggle('hidden');
+        expanded.classList.toggle('hidden');
+    };
+
+    minimized.addEventListener('click', toggleConsole);
+    closeBtn.addEventListener('click', toggleConsole);
+
+    // Auto-scroll to bottom when new content added
+    const consoleContent = document.getElementById('console-content');
+    new MutationObserver(() => {
+        consoleContent.scrollTop = consoleContent.scrollHeight;
+    }).observe(consoleContent, { childList: true });
+});
+</script>
+{% endmacro %}

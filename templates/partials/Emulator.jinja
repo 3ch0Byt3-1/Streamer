@@ -1,0 +1,53 @@
+{% macro Emulator(args) %}
+<script src="{{url_for('static',filename='js/emulator.js')}}"></script>
+<div id="emulator" class="bg-[#1f2427]/90 backdrop-blur-lg rounded-xl p-6 shadow-2xl border border-white/10 flex justify-between items-center">
+    <div class="space-y-1">
+        <h2 class="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">Emulator</h2>
+    </div>
+    
+    <div class="flex gap-4">
+            <div class="flex gap-1">
+                <button id="btn1" class="feature-btn enable">
+                    32bit
+                </button>
+                <button id="btn2" class="feature-btn disable">
+                    64bit
+                </button>
+            </div>
+    </div>
+</div>
+
+<style>
+    .feature-card {
+        background: #2a3035;
+        padding: 0.4rem;
+        border-radius: 12px;
+        border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .feature-btn {
+        border-radius: 8px;
+        font-weight: 500;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem 1.5rem;
+        font-size: 0.875rem;
+        transition: none;
+    }
+
+    .enable {
+        background-color: #1bbc9b;
+        color: white;
+    }
+
+    .disable {
+        background-color: #3a4249;
+        color: rgba(255,255,255,0.7);
+    }
+
+    #emulator {
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+</style>
+{% endmacro %}

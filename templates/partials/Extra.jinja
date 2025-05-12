@@ -1,0 +1,113 @@
+{% macro Extra(args) %}
+<script src="{{ url_for('static', filename='js/extra.js') }}"></script>
+<style>
+    /* Main Container Styles */
+    #headshot {
+        background: linear-gradient(145deg, #1f2427 0%, #2a3035 100%);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Feature Card Styles */
+    #headshot > div {
+        padding: 1.5rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        transition: all 0.3s ease;
+    }
+
+    #headshot > div:hover {
+        background: rgba(255, 255, 255, 0.02);
+    }
+
+    #headshot > div:last-child {
+        border-bottom: none;
+    }
+
+    /* Button Styles */
+    #headshot button {
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transform: translateY(0);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    #headshot button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Specific Button Colors */
+    #chamsmenu, #chams3d, #mbEnable {
+        background: rgba(27, 188, 155, 0.1);
+    }
+
+    #mbDisable {
+        background: rgba(239, 68, 68, 0.1);
+    }
+
+    /* Active State */
+    #headshot button:active {
+        transform: translateY(0);
+    }
+
+    /* Text Styles */
+    #headshot h2 {
+        background: linear-gradient(to right, #1bbc9b, #586fe4);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: inline;
+    }
+
+    #headshot p {
+        color: rgba(156, 163, 175, 0.8);
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 640px) {
+        #headshot > div {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        #headshot button {
+            margin-top: 1rem;
+            width: 100%;
+        }
+    }
+</style>
+
+<div id="headshot" class="rounded-xl p-4 space-y-6 mb-16">
+    <!-- Chams Menu -->
+    <div class="flex flex-col sm:flex-row justify-between items-center">
+        <div>
+            <h2 class="text-2xl font-semibold">Chams Menu</h2>
+            <p class="text-sm">Apply Once. [INSERT]</p>
+        </div>
+        <button id="chamsmenu"
+            class="mt-4 sm:mt-0 text-white border border-[#1bbc9b] px-4 py-2 w-28 rounded-lg">
+            Load
+        </button>
+    </div>
+
+
+    <!-- M82B ESP -->
+    <div class="flex flex-col sm:flex-row justify-between items-center">
+        <div>
+            <h2 class="text-2xl font-semibold">M82B ESP</h2>
+            <p class="text-sm">Apply in Login</p>
+        </div>
+        <div class="flex flex-wrap gap-3 mt-4 sm:mt-0">
+            <button id="mbEnable"
+                class="text-white border border-[#1bbc9b] px-4 py-2 w-28 rounded-lg">
+                Enable
+            </button>
+            <button id="mbDisable"
+                class="text-white border border-red-500 px-4 py-2 w-28 rounded-lg">
+                Disable
+            </button>
+        </div>
+    </div>
+</div>
+{% endmacro %}

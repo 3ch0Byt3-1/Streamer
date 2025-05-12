@@ -1,0 +1,77 @@
+{% macro Sniper(args) %}
+<script src="{{url_for('static',filename='js/sniper.js')}}"></script>
+<div id="sniper" class="bg-[#1f2427]/90 backdrop-blur-lg rounded-xl p-6 shadow-2xl border border-white/10 space-y-6">
+    <!-- Sniper Scope -->
+    <div class="feature-card">
+        <div class="flex justify-between items-center">
+            <div>
+                <h3 class="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">Sniper Scope</h3>
+                <p class="text-sm text-gray-400 mt-1">Apply One Time In Login</p>
+            </div>
+            <div class="flex gap-3">
+                <button  id="swEnable"  class="feature-btn enable">
+                    Enable
+                </button>
+                <button  id="swDisable"  class="feature-btn disable">
+                    Disable
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sniper Switch -->
+    <div class="feature-card">
+        <div class="flex justify-between items-center">
+            <div>
+                <h3 class="text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Sniper Switch</h3>
+                <p class="text-sm text-gray-400 mt-1">Apply One Time In Login</p>
+            </div>
+            <div class="flex gap-3">
+                <button id="ssEnable"class="feature-btn enable">
+                    Enable
+                </button>
+                <button id="ssDisable" class="feature-btn disable">
+                    Disable
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .feature-card {
+        background: #2a3035;
+        padding: 1.5rem;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .feature-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 32px rgba(27, 188, 155, 0.1);
+    }
+
+    .feature-btn {
+        padding: 0.5rem 1.5rem;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        font-weight: 500;
+    }
+
+    .enable {
+        background: linear-gradient(45deg, #1bbc9b, #586fe4);
+        color: white;
+    }
+
+    .disable {
+        background: linear-gradient(45deg, #586fe4, #1bbc9b);
+        color: white;
+    }
+
+    .feature-btn:hover {
+        transform: scale(1.05);
+        filter: brightness(1.1);
+    }
+</style>
+{% endmacro %}

@@ -1,0 +1,41 @@
+{% macro Status(version) %}
+<script src="{{url_for('static',filename='js/status.js')}}"></script>
+<div id="status" class="bg-[#1f2427]/90 backdrop-blur-lg rounded-xl p-6 shadow-2xl border border-white/10 flex justify-between items-center w-full">
+    <div class="space-y-1">
+        <h2 class="text-xl font-bold text-gray-300">Status</h2>
+        <p class="text-sm text-gray-400">Connected To HIDDEN REGEDIT</p>
+    </div>
+    
+    <div class="flex items-center gap-4">
+        <button id="onlinebtn" class="px-4 py-2 rounded-lg transition-all duration-300 font-medium border-1.5 disable">
+            Offline
+        </button>
+        <span class="text-sm bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent font-medium">
+            {{version}}
+        </span>
+    </div>
+</div>
+
+<style>
+    #onlinebtn {
+        border-width: 1.5px;
+    }
+
+    .enable {
+        border-color: #4ade80;
+        background-color: #2563eb;
+        color: white;
+    }
+
+    .disable {
+        border-color: #f87171;
+        background-color: inherit;
+        color: white;
+    }
+
+    #status {
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+</style>
+{% endmacro %}

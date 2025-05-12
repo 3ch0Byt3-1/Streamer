@@ -1,0 +1,58 @@
+{% macro Tabs(num) %}
+<div id="tabs" class="bg-[#1f2427]/90 backdrop-blur-lg rounded-xl shadow-2xl border border-white/10">
+    <div class="flex justify-center gap-4 p-4 overflow-x-auto no-scrollbar">
+        {% if num ==1 %}
+            <a href="/dashboard" class="tab-active">Headshot</a>
+        {% else %}
+            <a href="/dashboard" class="tab-inactive">Headshot</a>
+        {% endif %}
+        
+        {% if num ==2 %}
+            <a href="/sniper-panel" class="tab-active">Sniper</a>
+        {% else %}
+            <a href="/sniper-panel" class="tab-inactive">Sniper</a>
+        {% endif %}
+        
+        {% if num ==3 %}
+            <a href="/extra-panel" class="tab-active">Extra</a>
+        {% else %}
+            <a href="/extra-panel" class="tab-inactive">Extra</a>
+        {% endif %}
+        
+        {% if num ==4 %}
+            <a href="/settings" class="tab-active">Settings</a>
+        {% else %}
+            <a href="/settings" class="tab-inactive">Settings</a>
+        {% endif %}
+    </div>
+</div>
+
+<style>
+    .tab-active {
+        background: linear-gradient(45deg, #1bbc9b, #586fe4);
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+        margin: 0 0.5rem;
+    }
+
+    .tab-inactive {
+        background: #2a3035;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        border: 1px solid rgba(255,255,255,0.1);
+        transition: all 0.3s ease;
+        font-weight: 500;
+        white-space: nowrap;
+        margin: 0 0.5rem;
+    }
+
+    #tabs div {
+        justify-content: center;
+    }
+</style>
+{% endmacro %}

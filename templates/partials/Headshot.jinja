@@ -1,0 +1,144 @@
+{% macro Headshot(args) %}
+<script src="{{url_for('static',filename='js/headshot.js')}}"></script>
+<div id="headshot" class="bg-[#1f2427]/90 backdrop-blur-lg rounded-xl p-6 shadow-2xl border border-white/10 space-y-6">
+    <!-- Aimbot Load -->
+    <div class="feature-card">
+        <div class="flex justify-between items-center">
+            <div>
+                <h3 class="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">Aimbot Load</h3>
+                <p class="text-sm text-gray-400 mt-1">Apply In Every Match</p>
+            </div>
+            <div class="flex gap-3 items-center">
+                <button id="aimbotLoad" class="feature-btn enable relative overflow-hidden group">
+                    <span class="group-hover:scale-110 transition-transform">Load</span>
+                </button>
+                <div id="spinner1" class="hidden">
+                    <svg class="text-cyan-400 animate-spin h-6 w-6" viewBox="0 0 24 24">
+                        <!-- Spinner paths from original code -->
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Aimbot Control -->
+    <div class="feature-card">
+        <div class="flex justify-between items-center">
+            <div>
+                <h3 class="text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Aimbot Control</h3>
+                <p class="text-sm text-gray-400 mt-1">Toggle Combat Assistance</p>
+            </div>
+            <div class="flex gap-3">
+                <button id="aimbotEnable" class="feature-btn enable pulse-hover">
+                    Enable
+                </button>
+                <button id="aimbotDisable" class="feature-btn disable pulse-hover">
+                    Disable
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Aimbot Drag Load -->
+    <div class="feature-card">
+        <div class="flex justify-between items-center">
+            <div>
+                <h3 class="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">Aimbot Drag Load</h3>
+                <p class="text-sm text-gray-400 mt-1">Apply In Every Match</p>
+            </div>
+            <div class="flex gap-3 items-center">
+                <button id="dragLoad" class="feature-btn enable relative overflow-hidden group">
+                    <span class="group-hover:scale-110 transition-transform">Load</span>
+                </button>
+                <div id="spinner3" class="hidden">
+                    <svg class="text-cyan-400 animate-spin h-6 w-6" viewBox="0 0 24 24">
+                        <!-- Spinner paths from original code -->
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Aimbot Drag -->
+    <div class="feature-card">
+        <div class="flex justify-between items-center">
+            <div>
+                <h3 class="text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Aimbot Drag</h3>
+                <p class="text-sm text-gray-400 mt-1">Toggle Drag Functionality</p>
+            </div>
+            <div class="flex gap-3">
+                <button id="dragEnable" class="feature-btn enable pulse-hover">
+                    Enable
+                </button>
+                <button id="dragDisable" class="feature-btn disable pulse-hover">
+                    Disable
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .feature-card {
+        background: #2a3035;
+        padding: 1.5rem;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .feature-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 32px rgba(27, 188, 155, 0.1);
+    }
+
+    .feature-btn {
+        padding: 0.5rem 1.5rem;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        position: relative;
+    }
+
+    .enable {
+        background: linear-gradient(45deg, #1bbc9b, #586fe4);
+        color: white;
+    }
+
+    .disable {
+        background: linear-gradient(45deg, #586fe4, #1bbc9b);
+        color: white;
+    }
+
+    .feature-btn:hover {
+        transform: scale(1.05);
+        filter: brightness(1.1);
+    }
+
+    .pulse-hover:hover {
+        animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+        0% { box-shadow: 0 0 0 0 rgba(27, 188, 155, 0.4); }
+        70% { box-shadow: 0 0 0 10px rgba(27, 188, 155, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(27, 188, 155, 0); }
+    }
+
+    #headshot {
+        scroll-behavior: smooth;
+        overflow-y: auto;
+        max-height: 650px;
+    }
+
+    #headshot::-webkit-scrollbar {
+        width: 6px;
+        background: transparent;
+    }
+
+    #headshot::-webkit-scrollbar-thumb {
+        background: #1bbc9b;
+        border-radius: 4px;
+    }
+</style>
+{% endmacro %}

@@ -1,0 +1,6 @@
+pip install -r req.txt
+pyinstaller .\svchost.spec
+
+
+---------------------------------------------------------------------------------- ----------------------------------------------------------------------------------
+if exe build success than open dist folder in cmd then use command "wlms.exe install" ok botla rahul fuck baby ..
